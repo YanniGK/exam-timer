@@ -23,25 +23,30 @@ export default function TimerApp() {
     }
     else{
       let questionsPerSecond = questions/duration
+      let value = questions-Math.floor(questionsPerSecond*remainingTime)
       return(
         <div className={styles.time}>
-          <h1>Question #{Math.ceil(questionsPerSecond*remainingTime)}</h1>
+          <h1>Question #{value>0?value:1}</h1>
           <h2>{fancyTimeFormat(remainingTime)}</h2>
         </div>
       )
     }
   }
   return (
-    
       <div className={styles.container}>
         <Head>
-          <title>Timer App</title>
-          <meta name="description" content="A timer for students to keep track of their exam time." />
-          <link rel="icon" href="/favicon.ico" />
+          <title>Exam Timer</title>
+          <link rel="icon" href="/logo-svg.svg" />
+          <meta name="description" content="A question aware timer for students to keep track of their exam time. A new way to do exam timing." />
+          <meta property="og:title" content="Exam Timer"/>
+          <meta property="og:description" content="A question aware timer for students to keep track of their exam time. A new way to do exam timing."/>
+          <meta property="og:type" content="website"/>
+          <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+          <meta hrefLang="en-us"/>
         </Head>
         <div className={styles.hero}>
           <h1 className={styles.heroTitle}>A New Way to Do Exam Timing.</h1>
-          <h3 className={styles.heroSubhead}>Built by Students, for Students.</h3>
+          <h2 className={styles.heroSubhead}>Built by Students, for Students.</h2>
         </div>
         <div className={styles.timer}>
         <CountdownCircleTimer
