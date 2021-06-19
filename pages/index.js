@@ -62,10 +62,12 @@ export default function TimerApp() {
         </div>
         <div className={styles.information}>
           <span className={styles.error}/>
-          <label># of Questions</label>
-          <input type="number" value={questions} onChange={(value)=>setQuestions(value?value.target.value:"")}></input>
-          <label># of Minutes</label>
-          <input type="number" value={minutes} onChange={(value)=>setMinutes(value?value.target.value:"")}></input>
+          <form>
+            <label name="questions"># of Questions</label>
+            <input name="questions" type="number" value={questions} onChange={(value)=>setQuestions(value?value.target.value:"")}/>
+            <label name="minutes"># of Minutes</label>
+            <input name="minutes" type="number" value={minutes} onChange={(value)=>setMinutes(value?value.target.value:"")}/>
+          </form>
           <ToastProvider >
             <Cta setDuration={setDuration} setEnabled={setEnabled} enabled={enabled} minutes={minutes} questions={questions}/>
           </ToastProvider>
